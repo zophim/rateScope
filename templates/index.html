@@ -1,0 +1,13 @@
+{% block head %}
+<title>rateScope - Rated items</title>
+{% endblock %}
+{% block content %}
+<h3>Hello {% if request.user.is_authenticated %}{{ request.user.username }}{% else %}anonymous{% endif %}</h3>
+<ul>
+    {% for obj in objects %}
+    <li>
+        <!-- content for ratable objects -->
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
