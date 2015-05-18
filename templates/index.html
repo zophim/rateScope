@@ -1,7 +1,9 @@
+{% load cache %}
 {% block head %}
 <title>rateScope - Rated items</title>
 {% endblock %}
 {% block content %}
+{% cache 300 "root content" request.user.username %}
 <h3>Hello {% if request.user.is_authenticated %}{{ request.user.username }}{% else %}anonymous{% endif %}</h3>
 <ul>
     {% for obj in objects %}
@@ -10,4 +12,5 @@
     </li>
     {% endfor %}
 </ul>
+{% endcache %}
 {% endblock %}
